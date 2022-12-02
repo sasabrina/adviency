@@ -1,10 +1,9 @@
-import "./App.scss";
-import { Day01 } from "./components";
+import { Day02 } from "./components";
 
 function App() {
   return (
     <div className="app">
-      <Day01 />
+      <Day02 />
     </div>
   );
 }

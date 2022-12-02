@@ -1,0 +1,25 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../assets/christmas_bg.jpg");
+  background-size: cover;
+  padding-left: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+
+  .title {
+    font-size: 64px;
+  }
+
+  .giftsContainer {
+    list-style: none;
+    margin-top: 30px;
+
+    li {
+      font-size: 24px;
+      padding-bottom: 16px;
+    }
+  }
+}
