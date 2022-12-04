@@ -1,0 +1,39 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../assets/christmas_bg.jpg");
+  background-size: cover;
+  padding: 10%;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+
+  .title {
+    font-size: 64px;
+  }
+
+  .giftsContainer {
+    list-style: none;
+
+    li {
+      font-size: 24px;
+      padding-bottom: 16px;
+    }
+  }
+
+  .form {
+    margin: 16px 0;
+
+    input {
+      min-width: 300px;
+      padding: 8px;
+      margin-right: 8px;
+      font-size: 18px;
+    }
+
+    button {
+      padding: 8px;
+      font-size: 18px;
+    }
+  }
+}
