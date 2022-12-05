@@ -1,1 +1,0 @@
-export { default as Day01 } from './Day01';

@@ -1,12 +1,10 @@
 .container {
-  width: 100%;
-  height: 100vh;
-  background-image: url("../../assets/christmas_bg.jpg");
-  background-size: cover;
-  padding: 10%;
+  max-width: 500px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
-  color: #fff;
+  background-color: #fff;
+  border-radius: 8px;
 
   .title {
     font-size: 64px;
@@ -14,10 +12,17 @@
 
   .giftsContainer {
     list-style: none;
+  }
 
-    li {
-      font-size: 24px;
-      padding-bottom: 16px;
+  .gift {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    padding-bottom: 16px;
+
+    button {
+      padding: 8px;
+      font-weight: 700;
     }
   }
 

@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
-import styles from "../../styles.module.scss";
+import styles from "@/styles.module.scss";
 
 export interface FormInterface {
   submit: (gift: string) => void;

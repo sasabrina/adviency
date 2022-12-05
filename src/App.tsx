@@ -1,9 +1,17 @@
-import { Day03 } from "./components";
+import { useContext } from "react";
+import { Form, Gifts } from "./components";
+import { GiftContext } from "./context";
+import styles from "./styles.module.scss";
 
 function App() {
+  const { giftsState, handleGiftSubmit } = useContext(GiftContext);
+
   return (
-    <div className="app">
-      <Day03 />
+    <div className={styles.container}>
+      <h1 className={styles.title}>Regalos</h1>
+
+      <Form submit={handleGiftSubmit} />
+      <Gifts items={giftsState} />
     </div>
   );
 }
