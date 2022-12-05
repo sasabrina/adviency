@@ -8,18 +8,23 @@ export interface GiftsInterface {
 }
 
 const Gifts: React.FC<GiftsInterface> = ({ items }) => {
-  const { handleGiftDelete } = useContext(GiftContext);
+  const { handleGiftDelete, handleGiftDeleteAll } = useContext(GiftContext);
 
   return (
-    <ul className={styles.giftsContainer}>
-      {items.map((gift, i) => (
-        <li key={i} className={styles.gift}>
-          <span>{gift.name}</span>
+    <>
+      <ul className={styles.giftsContainer}>
+        {items.map((gift, i) => (
+          <li key={i} className={styles.gift}>
+            <span>{gift.name}</span>
 
-          <button onClick={() => handleGiftDelete(gift.id)}>X</button>
-        </li>
-      ))}
-    </ul>
+            <button onClick={() => handleGiftDelete(gift.id)}>X</button>
+          </li>
+        ))}
+      </ul>
+      <button className={styles.btnDeleteAll} onClick={handleGiftDeleteAll}>
+        Borrar todo
+      </button>
+    </>
   );
 };
 

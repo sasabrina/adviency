@@ -1,3 +1,6 @@
+@import "@/styles/variables.scss";
+@import "@/styles/mixins.scss";
+
 .container {
   max-width: 500px;
   padding: 40px;
@@ -21,9 +24,15 @@
     padding-bottom: 16px;
 
     button {
-      padding: 8px;
+      @include btn();
+
       font-weight: 700;
     }
+  }
+
+  .btnDeleteAll {
+    font-size: 18px;
+    @include btn();
   }
 
   .form {
@@ -37,8 +46,8 @@
     }
 
     button {
-      padding: 8px;
       font-size: 18px;
+      @include btn();
     }
   }
 }

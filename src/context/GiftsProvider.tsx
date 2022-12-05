@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useReducer } from "react";
 import { GiftContext } from "./GiftsContext";
 import { Gift } from "@/models";
+import { giftsReducer } from "./giftsReducer";
 
 interface props {
   children: JSX.Element | JSX.Element[];
@@ -22,21 +23,28 @@ const INITIAL_STATE: Gift[] = [
 ];
 
 export const GiftsProvider = ({ children }: props) => {
-  const [giftsState, setGiftState] = useState<Gift[]>(INITIAL_STATE);
+  const [giftsState, dispatch] = useReducer(giftsReducer, INITIAL_STATE);
 
   const handleGiftSubmit = (gift: Gift["name"]): void => {
-    const newId = giftsState.length + 1;
-
-    setGiftState([...giftsState, { id: newId, name: gift }]);
+    dispatch({ type: "addGift", payload: gift });
   };
 
   const handleGiftDelete = (id: Gift["id"]) => {
-    setGiftState(giftsState.filter((gift) => gift.id !== id));
+    dispatch({ type: "deleteGift", payload: id });
+  };
+
+  const handleGiftDeleteAll = () => {
+    dispatch({ type: "deleteAllGifts" });
   };
 
   return (
     <GiftContext.Provider
-      value={{ giftsState, handleGiftSubmit, handleGiftDelete }}
+      value={{
+        giftsState,
+        handleGiftSubmit,
+        handleGiftDelete,
+        handleGiftDeleteAll,
+      }}
     >
       {children}
     </GiftContext.Provider>

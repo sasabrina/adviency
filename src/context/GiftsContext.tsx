@@ -5,6 +5,7 @@ export type GiftsContextProps = {
   giftsState: Gift[];
   handleGiftSubmit: (gift: Gift["name"]) => void;
   handleGiftDelete: (id: Gift["id"]) => void;
+  handleGiftDeleteAll: VoidFunction;
 };
 
 export const GiftContext = createContext<GiftsContextProps>(

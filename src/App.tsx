@@ -11,7 +11,12 @@ function App() {
       <h1 className={styles.title}>Regalos</h1>
 
       <Form submit={handleGiftSubmit} />
-      <Gifts items={giftsState} />
+
+      {!giftsState.length ? (
+        <p>No hay regalos en la lista</p>
+      ) : (
+        <Gifts items={giftsState} />
+      )}
     </div>
   );
 }

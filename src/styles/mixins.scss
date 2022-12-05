@@ -1,0 +1,9 @@
+@import "@/styles/variables.scss";
+
+@mixin btn {
+  background-color: $red;
+  color: $light;
+  border: 1px solid $red;
+  border-radius: 4px;
+  padding: 8px;
+}

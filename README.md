@@ -14,4 +14,8 @@
 
 ## Día 4
 
-- implementar un botón en cada regalo que permita eliminarlos individualmente
+- implementar un botón en cada regalo que permita eliminarlos individualmente.
+
+## Día 5
+
+- implementar un botón que permita eliminar todos los regalos a la vez.
