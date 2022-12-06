@@ -19,3 +19,7 @@
 ## Día 5
 
 - implementar un botón que permita eliminar todos los regalos a la vez.
+
+## Día 6
+
+- mostrar un mensaje cuando no hayan regalos en la lista.

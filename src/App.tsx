@@ -13,7 +13,7 @@ function App() {
       <Form submit={handleGiftSubmit} />
 
       {!giftsState.length ? (
-        <p>No hay regalos en la lista</p>
+        <p className={styles.noGiftMessage}>No hay regalos en la lista</p>
       ) : (
         <Gifts items={giftsState} />
       )}
