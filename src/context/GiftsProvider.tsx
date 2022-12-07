@@ -10,7 +10,7 @@ interface props {
 const INITIAL_STATE: Gift[] = [
   {
     id: 1,
-    name: " Medias",
+    name: "Medias",
   },
   {
     id: 2,

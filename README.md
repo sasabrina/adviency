@@ -23,3 +23,7 @@
 ## Día 6
 
 - mostrar un mensaje cuando no hayan regalos en la lista.
+
+## Día 7
+
+- implementar una validación que no permita agregar regalos repetidos o vacíos.

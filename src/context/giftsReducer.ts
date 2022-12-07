@@ -8,9 +8,11 @@ type GiftsAction =
 export const giftsReducer = (state: Gift[], action: GiftsAction) => {
   switch (action.type) {
     case "addGift":
-      const newGift = { id: state.length + 1, name: action.payload };
-
-      return [...state, newGift];
+      return state
+        .map((gift) => gift.name.toLowerCase())
+        .includes(action.payload.toLowerCase())
+        ? [...state]
+        : [...state, { id: state.length + 1, name: action.payload }];
 
     case "deleteGift":
       return state.filter((gift) => gift.id !== action.payload);
