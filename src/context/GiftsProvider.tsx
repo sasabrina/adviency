@@ -11,21 +11,24 @@ const INITIAL_STATE: Gift[] = [
   {
     id: 1,
     name: "Medias",
+    quantity: 1,
   },
   {
     id: 2,
     name: "Rompecabezas",
+    quantity: 1,
   },
   {
     id: 3,
     name: "Remeras",
+    quantity: 1,
   },
 ];
 
 export const GiftsProvider = ({ children }: props) => {
   const [giftsState, dispatch] = useReducer(giftsReducer, INITIAL_STATE);
 
-  const handleGiftSubmit = (gift: Gift["name"]): void => {
+  const handleGiftSubmit = (gift: Gift): void => {
     dispatch({ type: "addGift", payload: gift });
   };
 

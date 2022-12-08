@@ -27,3 +27,7 @@
 ## Día 7
 
 - implementar una validación que no permita agregar regalos repetidos o vacíos.
+
+## Día 8
+
+- implementar un nuevo input que permita agregar la cantdidad de unidades del regalo a comprar.
