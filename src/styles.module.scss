@@ -2,7 +2,7 @@
 @import "@/styles/mixins.scss";
 
 .container {
-  max-width: 500px;
+  min-width: 500px;
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -24,14 +24,26 @@
 
   .gift {
     display: flex;
-    justify-content: space-between;
     font-size: 24px;
     padding-bottom: 16px;
+    gap: 8px;
+
+    .imgContainer {
+      width: 50px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    p {
+      width: 100%;
+    }
 
     button {
       @include btn();
-
       font-weight: 700;
+      height: fit-content;
     }
   }
 
@@ -43,24 +55,26 @@
   .form {
     margin: 16px 0;
     display: flex;
+    flex-direction: column;
     gap: 8px;
 
     input {
       padding: 8px;
       font-size: 18px;
-
-      &:nth-of-type(1) {
-        min-width: 250px;
-      }
-
-      &:nth-of-type(2) {
-        max-width: 60px;
-      }
+      min-width: 250px;
     }
 
-    button {
-      font-size: 18px;
-      @include btn();
+    .formGroup {
+      input {
+        min-width: unset;
+        width: 60px;
+        margin-right: 8px;
+      }
+
+      button {
+        font-size: 18px;
+        @include btn();
+      }
     }
   }
 }

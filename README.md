@@ -35,3 +35,7 @@
 ## Día 9
 
 - agregar persistencia de los regalos usando localStorage
+
+## Día 10
+
+- implementar un nuevo input que permita agregar la url de una imagen y mostrarla en la lista de regalos.

@@ -18,6 +18,7 @@ export const giftsReducer = (state: Gift[], action: GiftsAction) => {
               id: state.length + 1,
               name: action.payload.name,
               quantity: action.payload.quantity,
+              image: action.payload.image,
             },
           ];
 

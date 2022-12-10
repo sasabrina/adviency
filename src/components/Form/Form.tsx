@@ -9,10 +9,15 @@ export interface FormInterface {
 type FormValues = {
   name: Gift["name"];
   quantity: Gift["quantity"];
+  image: Gift["image"];
 };
 
 const Form: React.FC<FormInterface> = ({ submit }) => {
-  const [values, setValues] = useState<FormValues>({ name: "", quantity: 0 });
+  const [values, setValues] = useState<FormValues>({
+    name: "",
+    quantity: 0,
+    image: "",
+  });
 
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setValues({ ...values, name: e.target.value });
@@ -20,6 +25,10 @@ const Form: React.FC<FormInterface> = ({ submit }) => {
 
   const handleQttyChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setValues({ ...values, quantity: Number(e.target.value) });
+  };
+
+  const handleImageChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    setValues({ ...values, image: e.target.value });
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -32,18 +41,30 @@ const Form: React.FC<FormInterface> = ({ submit }) => {
     <form className={styles.form} onSubmit={handleSubmit}>
       <input
         type="text"
+        name="name"
         value={values.name || ""}
         onChange={handleNameChange}
         placeholder="Agrega regalos a la lista..."
       />
 
       <input
-        type="number"
-        min={0}
-        value={values.quantity || 0}
-        onChange={handleQttyChange}
+        type="text"
+        name="image"
+        value={values.image || ""}
+        onChange={handleImageChange}
+        placeholder="https://image..."
       />
-      <button type="submit">Agregar</button>
+
+      <div className={styles.formGroup}>
+        <input
+          type="number"
+          name="quantity"
+          min={0}
+          value={values.quantity || 0}
+          onChange={handleQttyChange}
+        />
+        <button type="submit">Agregar</button>
+      </div>
     </form>
   );
 };
