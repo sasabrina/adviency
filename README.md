@@ -31,3 +31,7 @@
 ## Día 8
 
 - implementar un nuevo input que permita agregar la cantdidad de unidades del regalo a comprar.
+
+## Día 9
+
+- agregar persistencia de los regalos usando localStorage
