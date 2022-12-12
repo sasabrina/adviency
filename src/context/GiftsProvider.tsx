@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from "react";
+import { useReducer, useEffect, useState } from "react";
 import { GiftContext } from "./GiftsContext";
 import { Gift } from "@/models";
 import { giftsReducer } from "./giftsReducer";
@@ -30,6 +30,7 @@ const INITIAL_STATE: Gift[] = getLocalStorage("gifts")
 
 export const GiftsProvider = ({ children }: props) => {
   const [giftsState, dispatch] = useReducer(giftsReducer, INITIAL_STATE);
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
   useEffect(() => {
     setLocalStorage("gifts", giftsState);
@@ -47,6 +48,14 @@ export const GiftsProvider = ({ children }: props) => {
     dispatch({ type: "deleteAllGifts" });
   };
 
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
+
   return (
     <GiftContext.Provider
       value={{
@@ -54,6 +63,9 @@ export const GiftsProvider = ({ children }: props) => {
         handleGiftSubmit,
         handleGiftDelete,
         handleGiftDeleteAll,
+        openModal,
+        handleOpenModal,
+        handleCloseModal,
       }}
     >
       {children}

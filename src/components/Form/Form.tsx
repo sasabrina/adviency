@@ -1,6 +1,7 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
-import styles from "@/styles.module.scss";
+import React, { ChangeEvent, FormEvent, useContext, useState } from "react";
 import { Gift } from "@/models";
+import { GiftContext } from "@/context";
+import styles from "@/styles.module.scss";
 
 export interface FormInterface {
   submit: (gift: Gift) => void;
@@ -13,6 +14,8 @@ type FormValues = {
 };
 
 const Form: React.FC<FormInterface> = ({ submit }) => {
+  const { handleCloseModal } = useContext(GiftContext);
+
   const [values, setValues] = useState<FormValues>({
     name: "",
     quantity: 0,
@@ -35,6 +38,7 @@ const Form: React.FC<FormInterface> = ({ submit }) => {
     e.preventDefault();
     if (values) submit(values);
     setValues({} as FormValues);
+    handleCloseModal();
   };
 
   return (

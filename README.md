@@ -39,3 +39,7 @@
 ## Día 10
 
 - implementar un nuevo input que permita agregar la url de una imagen y mostrarla en la lista de regalos.
+
+## Día 11
+
+- pasar el formulario a un modal y agregar un botón que lo abra.
