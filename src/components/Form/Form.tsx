@@ -11,6 +11,7 @@ type FormValues = {
   name: Gift["name"];
   quantity: Gift["quantity"];
   image: Gift["image"];
+  receiver: Gift["receiver"];
 };
 
 const Form: React.FC<FormInterface> = ({ submit }) => {
@@ -20,6 +21,7 @@ const Form: React.FC<FormInterface> = ({ submit }) => {
     name: "",
     quantity: 0,
     image: "",
+    receiver: "",
   });
 
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -32,6 +34,10 @@ const Form: React.FC<FormInterface> = ({ submit }) => {
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setValues({ ...values, image: e.target.value });
+  };
+
+  const handleReceiverChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    setValues({ ...values, receiver: e.target.value });
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -57,6 +63,14 @@ const Form: React.FC<FormInterface> = ({ submit }) => {
         value={values.image || ""}
         onChange={handleImageChange}
         placeholder="https://image..."
+      />
+
+      <input
+        type="text"
+        name="receiver"
+        value={values.receiver || ""}
+        onChange={handleReceiverChange}
+        placeholder="¿Para quién es?"
       />
 
       <div className={styles.formGroup}>

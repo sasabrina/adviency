@@ -43,3 +43,7 @@
 ## Día 11
 
 - pasar el formulario a un modal y agregar un botón que lo abra.
+
+## Día 12
+
+- implementar un nuevo imput que permita agregar un destinatario al regalo y mostrarlo en la lista.

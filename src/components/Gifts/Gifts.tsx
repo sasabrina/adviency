@@ -22,7 +22,10 @@ const Gifts: React.FC<GiftsInterface> = ({ items }) => {
               <img src={imgSrc(gift.image)} alt="gift image" />
             </figure>
 
-            <p>{gift.name}</p>
+            <p className={styles.giftTitle}>
+              <span>{gift.name}</span>{" "}
+              <span className={styles.giftReceiver}>{gift.receiver}</span>
+            </p>
 
             <button onClick={() => handleGiftDelete(gift.id)}>X</button>
           </li>

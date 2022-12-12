@@ -3,4 +3,5 @@ export type Gift = {
   name: string;
   quantity: number;
   image: string;
+  receiver: string;
 };

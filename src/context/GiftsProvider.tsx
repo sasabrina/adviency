@@ -15,16 +15,22 @@ const INITIAL_STATE: Gift[] = getLocalStorage("gifts")
         id: 1,
         name: "Medias",
         quantity: 1,
+        image: "",
+        receiver: "Sabrina",
       },
       {
         id: 2,
         name: "Rompecabezas",
         quantity: 1,
+        image: "",
+        receiver: "Sabrina",
       },
       {
         id: 3,
         name: "Remeras",
         quantity: 1,
+        image: "",
+        receiver: "Sabrina",
       },
     ];
 
