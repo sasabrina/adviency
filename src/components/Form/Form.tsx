@@ -14,15 +14,25 @@ type FormValues = {
   receiver: Gift["receiver"];
 };
 
-const Form: React.FC<FormInterface> = ({ submit }) => {
-  const { handleCloseModal } = useContext(GiftContext);
+const INITIAL_VALUES: FormValues = {
+  name: "",
+  quantity: 0,
+  image: "",
+  receiver: "",
+};
 
-  const [values, setValues] = useState<FormValues>({
-    name: "",
-    quantity: 0,
-    image: "",
-    receiver: "",
-  });
+const Form: React.FC<FormInterface> = ({ submit }) => {
+  const {
+    handleCloseModal,
+    giftsState,
+    setEditGift,
+    isEditing,
+    handleIsEditing,
+  } = useContext(GiftContext);
+
+  const [values, setValues] = useState<FormValues>(
+    giftsState.editGift ? giftsState.editGift : INITIAL_VALUES
+  );
 
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setValues({ ...values, name: e.target.value });
@@ -43,8 +53,10 @@ const Form: React.FC<FormInterface> = ({ submit }) => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (values) submit(values);
-    setValues({} as FormValues);
+    setValues(INITIAL_VALUES);
+    setEditGift();
     handleCloseModal();
+    handleIsEditing(false);
   };
 
   return (
@@ -81,7 +93,7 @@ const Form: React.FC<FormInterface> = ({ submit }) => {
           value={values.quantity || 0}
           onChange={handleQttyChange}
         />
-        <button type="submit">Agregar</button>
+        <button type="submit">{isEditing ? "Guardar" : "Agregar"}</button>
       </div>
     </form>
   );

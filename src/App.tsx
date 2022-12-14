@@ -4,8 +4,13 @@ import { GiftContext } from "./context";
 import styles from "./styles.module.scss";
 
 function App() {
-  const { giftsState, handleGiftSubmit, handleOpenModal } =
-    useContext(GiftContext);
+  const {
+    giftsState,
+    handleGiftSubmit,
+    handleOpenModal,
+    isEditing,
+    handleGiftEdit,
+  } = useContext(GiftContext);
 
   return (
     <div className={styles.container}>
@@ -16,13 +21,13 @@ function App() {
       </button>
 
       <Modal>
-        <Form submit={handleGiftSubmit} />
+        <Form submit={isEditing ? handleGiftEdit : handleGiftSubmit} />
       </Modal>
 
-      {!giftsState.length ? (
+      {!giftsState.gifts.length ? (
         <p className={styles.noGiftMessage}>No hay regalos en la lista</p>
       ) : (
-        <Gifts items={giftsState} />
+        <Gifts items={giftsState.gifts} />
       )}
     </div>
   );

@@ -1,6 +1,6 @@
-import { Gift } from "@/models";
+import { GiftsSate } from "@/models";
 
-export const setLocalStorage = (key: string, value: Gift[]) => {
+export const setLocalStorage = (key: string, value: GiftsSate) => {
   localStorage.setItem(key, JSON.stringify(value));
 };
 

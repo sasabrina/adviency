@@ -1,4 +1,6 @@
 import { useContext } from "react";
+import { IconButton } from "@mui/material";
+import { Delete as DeleteIcon, Edit as EditIcon } from "@mui/icons-material";
 import { GiftContext } from "@/context";
 import { Gift } from "@/models";
 import styles from "@/styles.module.scss";
@@ -9,9 +11,21 @@ export interface GiftsInterface {
 }
 
 const Gifts: React.FC<GiftsInterface> = ({ items }) => {
-  const { handleGiftDelete, handleGiftDeleteAll } = useContext(GiftContext);
+  const {
+    handleGiftDelete,
+    handleGiftDeleteAll,
+    handleIsEditing,
+    setEditGift,
+    handleOpenModal,
+  } = useContext(GiftContext);
   const imgSrc = (imageUrl: string): string =>
     imageUrl ? imageUrl : imgPlaceholder;
+
+  const handleEdit = (gift: Gift): void => {
+    setEditGift(gift);
+    handleIsEditing(true);
+    handleOpenModal();
+  };
 
   return (
     <>
@@ -27,7 +41,13 @@ const Gifts: React.FC<GiftsInterface> = ({ items }) => {
               <span className={styles.giftReceiver}>{gift.receiver}</span>
             </p>
 
-            <button onClick={() => handleGiftDelete(gift.id)}>X</button>
+            <IconButton onClick={() => handleEdit(gift)}>
+              <EditIcon fontSize="small" />
+            </IconButton>
+
+            <IconButton onClick={() => handleGiftDelete(gift.id)}>
+              <DeleteIcon fontSize="small" />
+            </IconButton>
           </li>
         ))}
       </ul>

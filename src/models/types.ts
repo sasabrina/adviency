@@ -5,3 +5,9 @@ export type Gift = {
   image: string;
   receiver: string;
 };
+
+export type GiftsSate = {
+  gifts: Gift[];
+  isEditing: boolean;
+  editGift: Gift | null;
+};

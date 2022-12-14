@@ -47,3 +47,7 @@
 ## Día 12
 
 - implementar un nuevo imput que permita agregar un destinatario al regalo y mostrarlo en la lista.
+
+## Día 13
+
+- Agregar un botón a cada regalo que permita editarlo.

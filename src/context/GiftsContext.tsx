@@ -1,14 +1,18 @@
 import { createContext } from "react";
-import { Gift } from "@/models";
+import { Gift, GiftsSate } from "@/models";
 
 export type GiftsContextProps = {
-  giftsState: Gift[];
+  giftsState: GiftsSate;
   handleGiftSubmit: (gift: Gift) => void;
   handleGiftDelete: (id: Gift["id"]) => void;
-  handleGiftDeleteAll: VoidFunction;
+  handleGiftEdit: (gift: Gift) => void;
   openModal: boolean;
   handleOpenModal: VoidFunction;
   handleCloseModal: VoidFunction;
+  isEditing: boolean;
+  handleGiftDeleteAll: VoidFunction;
+  handleIsEditing: (param: boolean) => void;
+  setEditGift: (gift?: Gift) => void;
 };
 
 export const GiftContext = createContext<GiftsContextProps>(
